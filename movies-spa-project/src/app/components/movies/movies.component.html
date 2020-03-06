@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center mt-4 mb-4 welcome">Welcome to OMDB</div>
+
+<form [formGroup]="searchForm" (ngSubmit)="submitForm()">
+    <div class="form-group">
+        <div class="form-group row">
+            <div class="col-12 d-flex justify-content-center form-inline">
+                <input type="text" class="form-control col-9" formControlName="movieTitle" placeholder="Insidious, Star Wars...">             
+                <button type="submit" class="btn btn-outline-info ml-3">Search</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="mt-3" *ngIf="response">
+    <h2 class="text-white">Results: </h2>
+    <div class="card-columns">
+        <div class="card border-info mb-3" style="max-width: 18rem;" *ngFor="let mv of movieList" [routerLink]="['/movie-details', mv.imdbID]"> 
+            <img [attr.src]="mv.Poster" [attr.alt]="mv.Title" class="card-img-top">
+            <div class="card-body">
+                <p class="card-text">{{ mv.Year }}</p>
+                <h5 class="card-title">{{ mv.Title }}</h5>
+                <p class="card-text"><small class="text-muted">Movie code: {{ mv.imdbID }}</small></p>
+            </div>
+        </div>
+    </div>
+</div>

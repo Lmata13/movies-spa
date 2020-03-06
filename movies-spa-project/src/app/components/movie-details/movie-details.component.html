@@ -1,0 +1,23 @@
+<h1 class="d-flex justify-content-center text-uppercase mt-3 text-white">Movie Details</h1>
+<div class="card mt-5 mb-3">
+    <div class="row no-gutters" *ngIf="movie">
+      <div class="col-md-4">
+        <img [attr.src]="movie.Poster" [attr.alt]="movie.Title" class="card-img">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+            <h5 class="card-title">{{movie.Title}}</h5>
+            <p class="font-weight-light d-flex justify-content-end">{{movie.Runtime}}</p>
+            <p class="card-text">{{movie.Plot}}</p>
+            <p class="card-text"><span class="font-weight-bold">Genre:</span> {{movie.Genre}}</p>
+            <div class="card-text"><span class="font-weight-bold">Director:</span> {{movie.Director}}</div>
+            <div class="card-text"><span class="font-weight-bold">Actors:</span> {{movie.Actors}}</div>
+            <div class="card-text"><span class="font-weight-bold">Writed by</span> {{movie.Writer}} </div>
+
+            <div class="card-text "><span class="font-weight-bold">Lanzamiento:</span> {{movie.Released}}</div>
+            <div class="card-text"><span class="font-weight-bold">Country:</span> {{movie.Country}}</div>
+        </div>
+      </div>
+    </div>
+</div>
+<button class="btn btn-info btn-lg d-flex justify-content-end" (click)="back()"> Back </button>
